@@ -1,0 +1,22 @@
+<resources>
+    <string name="app_name">Starter</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+
+
+    <!--Facebook-->
+
+    <string name="facebook_app_id">1874222039467005</string>
+    <string name="fb_login_protocol_scheme">fb1874222039467005</string>
+
+    <string name="facebook_button_text">Sign Up with Facebook</string>
+    <string name="facebook_provider">com.facebook.app.FacebookContentProvider1874222039467005</string>
+    <!---->
+
+    <!--VK-->
+
+    <integer name="com_vk_sdk_AppId">6248183</integer>
+
+    <!---->
+</resources>

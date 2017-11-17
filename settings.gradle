@@ -1,0 +1,1 @@
+include ':app', ':vksdk_library', ':facebook-android-sdk-4.26.0'

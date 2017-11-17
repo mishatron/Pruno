@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "224775616643",
+    "firebase_url": "https://starter-5883c.firebaseio.com",
+    "project_id": "starter-5883c",
+    "storage_bucket": "starter-5883c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:224775616643:android:77154a2ed28a1083",
+        "android_client_info": {
+          "package_name": "com.hack.apps.starter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "224775616643-fbcmkv1tmhsj3rjj6uvgu7egejc8s6m6.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5ww5_cxSbwiTCsdUf75ApJGKpacvnWMg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
