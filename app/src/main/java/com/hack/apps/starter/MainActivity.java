@@ -9,6 +9,8 @@ import android.widget.Button;
 
 import com.hack.apps.starter.auth.facebook.FacebookAuth;
 import com.hack.apps.starter.auth.facebook.FacebookPostActivity;
+import com.hack.apps.starter.onboarding.OnboardingActivity;
+import com.hack.apps.starter.preference.OnboardingPreference;
 import com.hack.apps.starter.profile.entity.User;
 
 import butterknife.BindView;
@@ -30,6 +32,24 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
+
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        OnboardingPreference preference=new OnboardingPreference(this);
+        if(preference.getFirstUse()){
+            openOnboarding();
+        }
+
+    }
+
+    private void openOnboarding() {
+        Intent intent = new Intent(MainActivity.this, OnboardingActivity.class);
+        startActivity(intent);
+        finish();
+    }
+
 
     @OnClick(R.id.facebookActivity)
     public void facebookClick(View view) {

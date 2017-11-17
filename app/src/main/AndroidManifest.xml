@@ -80,8 +80,9 @@
 
         <activity android:name=".auth.facebook.FacebookAuth"/>
         <activity android:name=".auth.facebook.FacebookPostActivity"/>
-
-
+        <activity android:name=".onboarding.OnboardingActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar"/>
 
     </application>
 

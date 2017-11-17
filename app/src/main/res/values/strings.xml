@@ -19,4 +19,35 @@
     <integer name="com_vk_sdk_AppId">6248183</integer>
 
     <!---->
+
+    <string name="onboarding_finish">Завершити</string>
+    <string name="onboarding_next">Далі</string>
+    <string name="description">Опис</string>
+
+
+    <string name="user_name_hint">Ім\'я користувача</string>
+    <string name="gender_male">Чоловік</string>
+    <string name="gender_female">Жінка</string>
+
+    <string name="height">Зріст</string>
+    <string name="weight">Вага</string>
+    <string name="health_title">Здоров\'я</string>
+    <string name="health">Рівень здоров\'я:</string>
+    <string name="alcohol">Максимальна кількість алкоголю випитого за добу:</string>
+    <string name="alcoho_level">Рівень алкоголю в напоях які ви часто вживаєте:</string>
+
+    <string name="save">Зберегти</string>
+    <string name="title_menu">Меню</string>
+    <string name="title_calculate">Обрахувати</string>
+    <string name="title_statistic">Статистика</string>
+
+    <string name="select_picture">Select Picture</string>
+
+    <string name="log_out_title">Ви впевнен що бажаєте вийти?</string>
+    <string name="log_out">Вийти</string>
+    <string name="cancel">Відминити</string>
+    <string name="third_edit_title">Будь ласка заповніть поля</string>
+    <string name="kg">кг</string>
+    <string name="ml">мл</string>
+    <string name="cm">см</string>
 </resources>

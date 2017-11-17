@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/media/yarbit/A8842986842957D8/PROJECTS/AndroidStudioProjects/Starter/vksdk_library/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-w600dp-v13/values-w600dp-v13.xml",
+            "outputFile": "C:\\AndroidProject\\starter\\vksdk_library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-w600dp-v13\\values-w600dp-v13.xml",
             "map": [
                 {
-                    "source": "/media/yarbit/A8842986842957D8/PROJECTS/AndroidStudioProjects/Starter/vksdk_library/build/intermediates/packaged_res/debug/values-w600dp-v13/values-w600dp-v13.xml",
+                    "source": "C:\\AndroidProject\\starter\\vksdk_library\\build\\intermediates\\packaged_res\\debug\\values-w600dp-v13\\values-w600dp-v13.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
