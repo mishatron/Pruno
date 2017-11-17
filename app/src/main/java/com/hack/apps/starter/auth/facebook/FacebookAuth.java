@@ -14,14 +14,14 @@ import com.facebook.login.widget.LoginButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.callback.LoginCallback;
-import com.hack.apps.starter.settings.Settings;
+import com.hack.apps.starter.db.UserDB;
+import com.hack.apps.starter.profile.entity.User;
+import com.hack.apps.starter.settings.CommonSettings;
 
 import java.util.Collections;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-
-import static com.hack.apps.starter.MainActivity.user;
 
 public class FacebookAuth extends AppCompatActivity implements LoginCallback {
     public static String TAG = "FacebookAuth";
@@ -30,7 +30,7 @@ public class FacebookAuth extends AppCompatActivity implements LoginCallback {
 
     private LoginManager loginManager;
 
-    private Settings settings;
+    private CommonSettings settings;
 
     @BindView(R.id.facebook_login_button)
     LoginButton logInFacebokButton;
@@ -80,26 +80,6 @@ public class FacebookAuth extends AppCompatActivity implements LoginCallback {
         // TODO
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        Log.i("LoginActivity", "onResume");
-        if (isAuthorized()) {
-            openMain();
-        }
-    }
-
-    boolean isAuthorized() {
-        if (user.getFacebookToken() != null) {
-            return true;
-        } else return false;
-    }
-
-    boolean isFirstUse() {
-        if (settings.isFirstUse()) {
-            return true;
-        } else return false;
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -117,15 +97,18 @@ public class FacebookAuth extends AppCompatActivity implements LoginCallback {
     public void logOut() {
         FirebaseAuth.getInstance().signOut();
 
-        user.cleaFacebookData();
-
         LoginManager.getInstance().logOut();
+
 
         Log.e(TAG, "LOGOUT");
     }
 
     private void saveToken(String token) {
-        user.setFacebookToken(token);
+
+        User user = UserDB.get();
+        user.setToken(token);
+        UserDB.save(user);
+
         Log.e(TAG, "saved token ok");
     }
 

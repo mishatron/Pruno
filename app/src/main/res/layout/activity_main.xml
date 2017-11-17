@@ -24,6 +24,12 @@
             android:layout_height="wrap_content"
             android:text="Facebook Post" />
 
+        <Button
+            android:id="@+id/vkLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="vkLogin" />
+
     </LinearLayout>
 
     <!--<Button-->

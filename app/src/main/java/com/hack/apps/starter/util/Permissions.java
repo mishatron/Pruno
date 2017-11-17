@@ -13,7 +13,8 @@ public class Permissions {
 
     private static String[] permissions = new String[]{
             Manifest.permission.INTERNET,
-            Manifest.permission.USE_FINGERPRINT
+            Manifest.permission.READ_EXTERNAL_STORAGE,
+            Manifest.permission.CAMERA
 
     };
 

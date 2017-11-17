@@ -14,9 +14,13 @@ import android.widget.TextView;
 
 import com.hack.apps.starter.MainActivity;
 import com.hack.apps.starter.R;
+import com.hack.apps.starter.db.CommonSettingsDB;
+import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditFirstFrament;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditSecondFrament;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditThirdFrament;
+import com.hack.apps.starter.profile.entity.User;
+import com.hack.apps.starter.settings.CommonSettings;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.OnPageChange;
+
+import static com.hack.apps.starter.db.DB.initDB;
 
 public class OnboardingActivity extends AppCompatActivity {
     private static final String TAG = "CheckInActivity";
@@ -61,7 +67,7 @@ public class OnboardingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_onboarding);
         ButterKnife.bind(this);
 
-//        SugarContext.init(ProfileEditFirstActivity.this);
+        initDB(OnboardingActivity.this);
 
         list.add(firstIndicator);
         list.add(secondIndicator);
@@ -100,6 +106,17 @@ public class OnboardingActivity extends AppCompatActivity {
     private void openMain() {
         Intent intent = new Intent(this, MainActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        CommonSettings commonSettings = CommonSettingsDB.get();
+        commonSettings.performFirstUse();
+        CommonSettingsDB.save(commonSettings);
+
+
+        User user = new User();
+        user.setUsername("user");
+        user.setGender(0);
+        UserDB.save(user);
+
         startActivity(intent);
     }
 

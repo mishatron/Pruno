@@ -6,14 +6,10 @@ import com.orm.SugarRecord;
 
 public class User extends SugarRecord {
     private Uri imageUri;
-    private String userName;
+    private String username;
     private Integer gender;
 
-
-//    private boolean vkLogined;
-
-    private String facebookToken;
-
+    private String token;
 
     public Uri getImageUri() {
         return imageUri;
@@ -24,7 +20,7 @@ public class User extends SugarRecord {
 
     public User(Uri imageUri, String userName, int gender, float weight, float height, int healthLevel, int maxAlcoholCount) {
         this.imageUri = imageUri;
-        this.userName = userName;
+        this.username = userName;
         this.gender = gender;
     }
 
@@ -32,24 +28,24 @@ public class User extends SugarRecord {
         this.gender = gender;
     }
 
-    public String getFacebookToken() {
-        return facebookToken;
+    public String getToken() {
+        return token;
     }
 
-    public void setFacebookToken(String facebookToken) {
-        this.facebookToken = facebookToken;
+    public void setToken(String token) {
+        this.token = token;
     }
 
     public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String userName) {
+        this.username = userName;
     }
 
     public int getGender() {
@@ -62,21 +58,11 @@ public class User extends SugarRecord {
 
     @Override
     public String toString() {
-        return "Profile{" +
-                "userName='" + userName + '\'' +
+        return "User{" +
+                "imageUri=" + imageUri +
+                ", username='" + username + '\'' +
                 ", gender=" + gender +
+                ", token='" + token + '\'' +
                 '}';
     }
-
-    public boolean isDataSet() {
-        return (userName != null &&
-                gender != null);
-    }
-
-
-    public void cleaFacebookData() {
-
-        this.facebookToken = null;
-    }
-
 }

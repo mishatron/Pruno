@@ -11,12 +11,16 @@ import android.widget.Toast;
 
 import com.facebook.FacebookSdk;
 import com.hack.apps.starter.auth.LoginActivity;
+import com.hack.apps.starter.db.CommonSettingsDB;
+import com.hack.apps.starter.settings.CommonSettings;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKAccessTokenTracker;
 import com.vk.sdk.VKSdk;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+
+import static com.hack.apps.starter.db.DB.initDB;
 
 public class Application extends MultiDexApplication {
     VKAccessTokenTracker tokenTracker = new VKAccessTokenTracker() {
@@ -44,29 +48,7 @@ public class Application extends MultiDexApplication {
         VKSdk.initialize(this);
         FacebookSdk.sdkInitialize(this);
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
-
         HashKey();
-
-        //Variables.loadVariables(getApplicationContext());
-        //printHashKey();
-        //vk
-        //String[] fingerprints = VKUtil.getCertificateFingerprint(this, this.getPackageName());
-        //fb
-        /*try {
-            PackageInfo info = getPackageManager().getPackageInfo(
-                    "com.facebook.samples.hellofacebook",
-                    PackageManager.GET_SIGNATURES);
-            for (Signature signature : info.signatures) {
-                MessageDigest md = MessageDigest.getInstance("SHA");
-                md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
-            }
-        } catch (NameNotFoundException e) {
-
-        } catch (NoSuchAlgorithmException e) {
-
-        }*/
-
     }
 
     public void HashKey() {
@@ -82,25 +64,6 @@ public class Application extends MultiDexApplication {
             }
         } catch (PackageManager.NameNotFoundException | NoSuchAlgorithmException e) {
             e.printStackTrace();
-        }
-    }
-
-    public String sha256(String base) {
-
-        try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            byte[] hash = digest.digest(base.getBytes("UTF-8"));
-            StringBuffer hexString = new StringBuffer();
-
-            for (int i = 0; i < hash.length; i++) {
-                String hex = Integer.toHexString(0xff & hash[i]);
-                if (hex.length() == 1) hexString.append('0');
-                hexString.append(hex);
-            }
-
-            return hexString.toString();
-        } catch (Exception ex) {
-            throw new RuntimeException(ex);
         }
     }
 
