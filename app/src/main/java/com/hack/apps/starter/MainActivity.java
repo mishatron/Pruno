@@ -8,14 +8,9 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.hack.apps.starter.auth.LoginActivity;
-import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.MapView;
 import com.google.android.gms.maps.MapsInitializer;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.hack.apps.starter.auth.facebook.FacebookAuth;
-import com.hack.apps.starter.auth.facebook.FacebookPostActivity;
-import com.hack.apps.starter.auth.vk.VkAuth;
+import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
@@ -91,24 +86,16 @@ public class MainActivity extends AppCompatActivity {
 
     //    Initialize Map to download play services
     public void initMap() {
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                try {
-                    MapsInitializer.initialize(getApplicationContext());    //init client version
-                    MapView mv = new MapView(getApplicationContext());        //init package version
-                    mv.getMapAsync(new OnMapReadyCallback() {
-                        @Override
-                        public void onMapReady(GoogleMap googleMap) {
-                            Log.e(TAG, "onMapReady");
-                        }
-                    });
-                    mv.onCreate(null);
-                    mv.onPause();
-                    mv.onDestroy();
-                } catch (Exception ignored) {
+        new Thread(() -> {
+            try {
+                MapsInitializer.initialize(getApplicationContext());    //init client version
+                MapView mv = new MapView(getApplicationContext());        //init package version
+                mv.getMapAsync(googleMap -> Log.e(TAG, "onMapReady"));
+                mv.onCreate(null);
+                mv.onPause();
+                mv.onDestroy();
+            } catch (Exception ignored) {
 
-                }
             }
         }).start();
     }
