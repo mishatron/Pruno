@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/home/yarbit/starter/vksdk_library/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v11/values-v11.xml",
+            "outputFile": "C:\\AndroidProject\\starter\\vksdk_library\\build\\intermediates\\incremental\\mergeDebugAndroidTestResources\\merged.dir\\values-v11\\values-v11.xml",
             "map": [
                 {
-                    "source": "/home/yarbit/starter/vksdk_library/build/intermediates/packaged_res/debug/values-v11/values-v11.xml",
+                    "source": "C:\\AndroidProject\\starter\\vksdk_library\\build\\intermediates\\packaged_res\\debug\\values-v11\\values-v11.xml",
                     "from": {
                         "startLines": "2,9",
                         "startColumns": "4,4",

@@ -47,4 +47,7 @@
     <string name="log_out">Вийти</string>
     <string name="cancel">Відминити</string>
     <string name="third_edit_title">Будь ласка заповніть поля</string>
+
+    <string name="project_name">Project Name</string>
+    <string name="project_description">Project Description</string>
 </resources>

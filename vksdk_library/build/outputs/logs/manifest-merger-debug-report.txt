@@ -1,47 +1,47 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:1-13:12
+ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:1-13:12
 	package
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:2:11-31
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:2:11-31
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
 	android:versionName
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:5:11-36
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:5:11-36
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:3:11-69
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:3:11-69
 	android:versionCode
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:4:11-34
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:4:11-34
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
 application
-ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:7:5-12:19
+ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:7:5-12:19
 activity#com.vk.sdk.VKServiceActivity
-ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:8:9-11:52
+ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:8:9-11:52
 	android:label
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:10:13-44
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:10:13-44
 	android:theme
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:11:13-50
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:11:13-50
 	android:name
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml:9:13-56
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml:9:13-56
 uses-sdk
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
 	android:targetSdkVersion
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		ADDED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
-		INJECTED from /home/yarbit/starter/vksdk_library/src/main/AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		ADDED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml
+		INJECTED from C:\AndroidProject\starter\vksdk_library\src\main\AndroidManifest.xml

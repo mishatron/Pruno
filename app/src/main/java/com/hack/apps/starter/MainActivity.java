@@ -11,6 +11,7 @@ import android.widget.Button;
 import com.hack.apps.starter.auth.facebook.FacebookAuth;
 import com.hack.apps.starter.auth.facebook.FacebookPostActivity;
 import com.hack.apps.starter.auth.vk.VkAuth;
+import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.onboarding.OnboardingActivity;
@@ -29,7 +30,6 @@ import butterknife.OnClick;
 import static com.hack.apps.starter.db.DB.initDB;
 
 public class MainActivity extends AppCompatActivity {
-
 
     @BindView(R.id.facebookActivity)
     Button facebook;
@@ -77,7 +77,7 @@ public class MainActivity extends AppCompatActivity {
             = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_dashboard:
-
+                FragmentUtil.replaceFragment(MainActivity.this, DashboardFragmment.class, null, false);
                 return true;
             case R.id.navigation_search:
                 FragmentUtil.replaceFragment(MainActivity.this, SearchFragmment.class, null, false);
@@ -101,7 +101,6 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initDB(MainActivity.this);
 
-        Log.e("USER", UserDB.findById(1L) + ""); //TODO: delete
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
