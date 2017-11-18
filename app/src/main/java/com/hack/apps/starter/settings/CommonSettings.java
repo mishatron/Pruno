@@ -8,6 +8,18 @@ public class CommonSettings extends SugarRecord {
 
     private Boolean firstUse;
 
+    private Boolean userLoggined;
+
+    private Long userId;
+
+    public Boolean isUserLoggined() {
+        return userLoggined;
+    }
+
+    public void setUserLoggined(Boolean userLoggined) {
+        this.userLoggined = userLoggined;
+    }
+
 
     public Boolean isFirstUse() {
         return firstUse;
@@ -21,5 +33,11 @@ public class CommonSettings extends SugarRecord {
         this.firstUse = false;
     }
 
+    public Long getUserId() {
+        return userId;
+    }
 
+    public void setUserId(Long userId) {
+        this.userId = userId;
+    }
 }

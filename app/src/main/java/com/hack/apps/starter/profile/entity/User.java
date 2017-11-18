@@ -5,9 +5,9 @@ import android.net.Uri;
 import com.orm.SugarRecord;
 
 public class User extends SugarRecord {
+
     private Uri imageUri;
     private String username;
-    private Integer gender;
 
     private String token;
 
@@ -18,14 +18,16 @@ public class User extends SugarRecord {
     public User() {
     }
 
-    public User(Uri imageUri, String userName, int gender, float weight, float height, int healthLevel, int maxAlcoholCount) {
+    public void setImageUri(Uri imageUri) {
         this.imageUri = imageUri;
-        this.username = userName;
-        this.gender = gender;
     }
 
-    public void setGender(Integer gender) {
-        this.gender = gender;
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getToken() {
@@ -36,33 +38,13 @@ public class User extends SugarRecord {
         this.token = token;
     }
 
-    public void setImageUri(Uri imageUri) {
-        this.imageUri = imageUri;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String userName) {
-        this.username = userName;
-    }
-
-    public int getGender() {
-        return gender;
-    }
-
-    public void setGender(int gender) {
-        this.gender = gender;
-    }
-
     @Override
     public String toString() {
         return "User{" +
                 "imageUri=" + imageUri +
                 ", username='" + username + '\'' +
-                ", gender=" + gender +
                 ", token='" + token + '\'' +
                 '}';
     }
+
 }

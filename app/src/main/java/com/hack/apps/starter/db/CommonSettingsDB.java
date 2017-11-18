@@ -12,6 +12,7 @@ public class CommonSettingsDB {
         if (!isExist()) {
             commonSettings = new CommonSettings();
             commonSettings.setFirstUse(true);
+            commonSettings.setUserLoggined(false);
             commonSettings.save();
         }
         commonSettings = CommonSettings.first(CommonSettings.class);

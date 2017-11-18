@@ -16,7 +16,9 @@
 
     <!--VK-->
 
-    <integer name="com_vk_sdk_AppId">6263717</integer>
+    <string name="vk_client_id">6263717</string>
+
+    <string name="vk_redirect_uri">https://oauth.vk.com/blank.html</string>
 
     <!---->
 

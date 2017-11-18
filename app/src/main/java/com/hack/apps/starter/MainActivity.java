@@ -5,26 +5,21 @@ import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.View;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.Button;
 
-import com.hack.apps.starter.auth.facebook.FacebookAuth;
-import com.hack.apps.starter.auth.facebook.FacebookPostActivity;
-import com.hack.apps.starter.auth.vk.VkAuth;
+import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
-import com.hack.apps.starter.onboarding.OnboardingActivity;
 import com.hack.apps.starter.search.SearchFragmment;
+import com.hack.apps.starter.settings.CommonSettings;
 import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.Permissions;
-import com.vk.sdk.VKAccessToken;
-import com.vk.sdk.VKCallback;
-import com.vk.sdk.VKSdk;
-import com.vk.sdk.api.VKError;
+import com.stfalcon.socialauthhelper.vk.VkClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.OnClick;
 
 import static com.hack.apps.starter.db.DB.initDB;
 
@@ -47,31 +42,21 @@ public class MainActivity extends AppCompatActivity {
 
         initDB(MainActivity.this);
 
-        if (CommonSettingsDB.get().isFirstUse())
-            openOnboarding();
+        if (!CommonSettingsDB.get().isUserLoggined())
+            openLogin();
+
+        UserDB.findById(CommonSettingsDB.get().getUserId());
+
+        Log.e("user id", CommonSettingsDB.get().getUserId()+"");
+
+
     }
 
-    private void openOnboarding() {
-        Intent intent = new Intent(MainActivity.this, OnboardingActivity.class);
-        startActivity(intent);
+    private void openLogin() {
+        startActivity(new Intent(MainActivity.this, LoginActivity.class));
         finish();
     }
 
-
-    @OnClick(R.id.facebookActivity)
-    public void facebookClick(View view) {
-        startActivity(new Intent(MainActivity.this, FacebookAuth.class));
-    }
-
-    @OnClick(R.id.vkLogin)
-    public void vkLogin(View view) {
-        VkAuth.login(MainActivity.this);
-    }
-
-    @OnClick(R.id.facebookPost)
-    public void facebookPostClick(View view) {
-        startActivity(new Intent(MainActivity.this, FacebookPostActivity.class));
-    }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
@@ -101,30 +86,37 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initDB(MainActivity.this);
 
-        Log.e("USER", UserDB.findById(1L) + ""); //TODO: delete
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+    public boolean onCreateOptionsMenu(Menu menu) {
 
-        if (!VKSdk.onActivityResult(requestCode, resultCode, data, new VKCallback<VKAccessToken>() {
-            @Override
-            public void onResult(VKAccessToken res) {
+        getMenuInflater().inflate(R.menu.main_menu, menu);
 
-                Log.e("SUCCESS", "LOGIN");
+        return true;
+    }
 
-            }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
 
-            @Override
-            public void onError(VKError error) {
-                Log.e("FAILED", "LOGIN");
-            }
-        })) {
-            super.onActivityResult(requestCode, resultCode, data);
+        int id = item.getItemId();
+
+        if (id == R.id.exit) {
+
+            CommonSettings commonSettings = CommonSettingsDB.get();
+            commonSettings.setUserLoggined(false);
+            commonSettings.setUserId(-1L);
+            CommonSettingsDB.save(commonSettings);
+
+            openLogin();
+            finish();
+
+            return false;
         }
+
+        return super.onOptionsItemSelected(item);
     }
 
 }

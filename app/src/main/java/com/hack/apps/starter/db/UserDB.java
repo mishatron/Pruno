@@ -4,13 +4,9 @@ import android.util.Log;
 
 import com.hack.apps.starter.profile.entity.User;
 
-import java.util.List;
-
-import static com.orm.SugarRecord.find;
-
 public class UserDB {
 
-    private static Long userId = 1L;
+    private static Long userId;
     private static String TAG = "UserDB";
 
     public static User get() {
@@ -22,6 +18,7 @@ public class UserDB {
 
         Long id = User.save(user);
         Log.e("saved user", user + "with id " + id);
+        userId = id;
         return id;
     }
 
@@ -31,17 +28,6 @@ public class UserDB {
             Log.e(TAG, "Unable to find user with id [" + id + "]");
             return null;
         }
-        userId = user.getId();
-        return user;
-    }
-
-    public static User findByUsername(String username) {
-        List<User> list = find(User.class, "username=?", new String[]{username}, null, null, "1");
-        if (list.isEmpty()) {
-            Log.e(TAG, "Unable to find user with username [" + username + "]");
-            return null;
-        }
-        User user = list.get(0);
         userId = user.getId();
         return user;
     }

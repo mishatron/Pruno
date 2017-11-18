@@ -12,14 +12,12 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.hack.apps.starter.MainActivity;
 import com.hack.apps.starter.R;
+import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.db.CommonSettingsDB;
-import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditFirstFrament;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditSecondFrament;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditThirdFrament;
-import com.hack.apps.starter.profile.entity.User;
 import com.hack.apps.starter.settings.CommonSettings;
 
 import java.util.ArrayList;
@@ -104,18 +102,12 @@ public class OnboardingActivity extends AppCompatActivity {
     }
 
     private void openMain() {
-        Intent intent = new Intent(this, MainActivity.class);
+        Intent intent = new Intent(this, LoginActivity.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         CommonSettings commonSettings = CommonSettingsDB.get();
         commonSettings.performFirstUse();
         CommonSettingsDB.save(commonSettings);
-
-
-        User user = new User();
-        user.setUsername("user");
-        user.setGender(0);
-        UserDB.save(user);
 
         startActivity(intent);
     }
