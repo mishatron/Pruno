@@ -18,6 +18,10 @@ public class Permissions {
 
     };
 
+    private static String[] locationkPermissions = new String[]{
+            Manifest.permission.ACCESS_FINE_LOCATION,
+    };
+
     public static boolean isGranted(Activity activity) {
         if (Build.VERSION.SDK_INT >= 23) {
 
@@ -33,6 +37,26 @@ public class Permissions {
             return false;
         } else return true;
     }
+
+    private static boolean checkForGrant(Activity activity, String[] grantStr) {
+        if (Build.VERSION.SDK_INT >= 23) {
+            ArrayList<String> tmpPermissions = new ArrayList<>();
+            for (String permission : grantStr) {
+                if (activity.checkSelfPermission(permission) != PackageManager.PERMISSION_GRANTED)
+                    tmpPermissions.add(permission);
+            }
+            if (tmpPermissions.size() > 0) {
+                ActivityCompat.requestPermissions(activity, tmpPermissions.toArray(new String[0]), Constants.PERMISSION_REQUEST);
+                return false;
+            }
+            return true;
+        } else return true;
+    }
+
+    public static boolean isLocationGranted(Activity activity) {
+        return checkForGrant(activity, locationkPermissions);
+    }
+
 
 
 }

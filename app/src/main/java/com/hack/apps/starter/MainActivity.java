@@ -9,6 +9,14 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.hack.apps.starter.auth.LoginActivity;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.hack.apps.starter.auth.facebook.FacebookAuth;
+import com.hack.apps.starter.auth.facebook.FacebookPostActivity;
+import com.hack.apps.starter.auth.vk.VkAuth;
+import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.place.PlaceDetailsFragment;
@@ -22,11 +30,10 @@ import butterknife.ButterKnife;
 import static com.hack.apps.starter.db.DB.initDB;
 
 public class MainActivity extends AppCompatActivity {
-
+    public static String TAG = "MainActivity";
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-
 
     @Override
     protected void onResume() {
@@ -49,12 +56,11 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
-
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_dashboard:
-
+                FragmentUtil.replaceFragment(MainActivity.this, DashboardFragmment.class, null, false);
                 return true;
             case R.id.navigation_search:
                 FragmentUtil.replaceFragment(MainActivity.this, PlaceDetailsFragment.class, null, false);
@@ -78,9 +84,34 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initDB(MainActivity.this);
 
+        initMap();
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    //    Initialize Map to download play services
+    public void initMap() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MapsInitializer.initialize(getApplicationContext());    //init client version
+                    MapView mv = new MapView(getApplicationContext());        //init package version
+                    mv.getMapAsync(new OnMapReadyCallback() {
+                        @Override
+                        public void onMapReady(GoogleMap googleMap) {
+                            Log.e(TAG, "onMapReady");
+                        }
+                    });
+                    mv.onCreate(null);
+                    mv.onPause();
+                    mv.onDestroy();
+                } catch (Exception ignored) {
+
+                }
+            }
+        }).start();
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
