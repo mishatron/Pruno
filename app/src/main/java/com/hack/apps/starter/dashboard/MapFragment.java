@@ -31,9 +31,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
     private Double lng;
     private String title;
 
-    @BindView(R.id.toolbar)
-    Toolbar toolbar;
-
     @BindView(R.id.map_view)
     com.google.android.gms.maps.MapView mMapView;
 
@@ -57,7 +54,6 @@ public class MapFragment extends Fragment implements OnMapReadyCallback {
             lat = bundle.getDouble(Constants.KEY_LAT);
             Log.e(TAG, "lat=" + lat);
             lng = bundle.getDouble(Constants.KEY_LNG);
-            toolbar.setTitle(bundle.getString(Constants.KEY_TITLE));
         }
         return view;
     }

@@ -10,15 +10,15 @@ import android.widget.TextView;
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.place.entity.Comment;
 
-import java.util.ArrayList;
+import java.util.List;
 
 class CommentAdapter extends BaseAdapter {
 
     private Context context;
-    private ArrayList<Comment> comments;
+    private List<Comment> comments;
 
 
-    CommentAdapter(Context context, ArrayList<Comment> comments) {
+    CommentAdapter(Context context, List<Comment> comments) {
         this.context = context;
         this.comments = comments;
     }
