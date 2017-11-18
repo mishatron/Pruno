@@ -5,12 +5,13 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
 
+import com.hack.apps.starter.R;
+
 
 public class FragmentUtil {
 
     public static void replaceFragment(FragmentActivity context, Class<? extends Fragment> fragmentClass, Bundle bundle, boolean toStack) {
 
-        int content = 0;
 
         Fragment fragment = null;
         try {
@@ -24,7 +25,7 @@ public class FragmentUtil {
 
         FragmentTransaction transaction = context.getSupportFragmentManager()
                 .beginTransaction()
-                .replace(content, fragment);
+                .replace(R.id.container, fragment);
         if (toStack) {
             transaction.addToBackStack(null);
         }

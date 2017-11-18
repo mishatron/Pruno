@@ -1,8 +1,6 @@
 package com.hack.apps.starter;
 
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
@@ -16,10 +14,11 @@ import com.hack.apps.starter.auth.vk.VkAuth;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.onboarding.OnboardingActivity;
+import com.hack.apps.starter.search.SearchFragmment;
+import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.Permissions;
 import com.vk.sdk.VKAccessToken;
 import com.vk.sdk.VKCallback;
-import com.vk.sdk.VKScope;
 import com.vk.sdk.VKSdk;
 import com.vk.sdk.api.VKError;
 
@@ -77,11 +76,16 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
         switch (item.getItemId()) {
-            case R.id.navigation_home:
-                return true;
             case R.id.navigation_dashboard:
+
                 return true;
-            case R.id.navigation_notifications:
+            case R.id.navigation_search:
+                FragmentUtil.replaceFragment(MainActivity.this, SearchFragmment.class, null, false);
+
+                return true;
+            case R.id.navigation_bookmarks:
+                return true;
+            case R.id.navigation_profile:
                 return true;
         }
         return false;

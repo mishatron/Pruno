@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Starter</string>
+    <string name="app_name">Reviewer</string>
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
@@ -47,7 +47,4 @@
     <string name="log_out">Вийти</string>
     <string name="cancel">Відминити</string>
     <string name="third_edit_title">Будь ласка заповніть поля</string>
-    <string name="kg">кг</string>
-    <string name="ml">мл</string>
-    <string name="cm">см</string>
 </resources>

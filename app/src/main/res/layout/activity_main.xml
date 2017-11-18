@@ -13,18 +13,21 @@
         android:orientation="vertical">
 
         <Button
+            android:visibility="gone"
             android:id="@+id/facebookActivity"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facebook" />
 
         <Button
+            android:visibility="gone"
             android:id="@+id/facebookPost"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Facebook Post" />
 
         <Button
+            android:visibility="gone"
             android:id="@+id/vkLogin"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
