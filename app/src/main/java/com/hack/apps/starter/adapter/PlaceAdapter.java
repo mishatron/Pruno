@@ -1,6 +1,7 @@
 package com.hack.apps.starter.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,18 +9,23 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.hack.apps.starter.R;
-import com.hack.apps.starter.model.ProjectModel;
+import com.hack.apps.starter.model.PlaceModel;
+import com.hack.apps.starter.util.Constants;
 import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
+import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
-public class ProjectAdapter extends BaseAdapter {
+import static com.hack.apps.starter.util.RatingUtil.calculateRate;
+
+public class PlaceAdapter extends BaseAdapter {
+    public static String TAG = "PlaceAdapter";
     private Context context;
-    private List<ProjectModel> list;
+    private List<PlaceModel> list;
 
-    public ProjectAdapter(Context context, List<ProjectModel> model) {
+    public PlaceAdapter(Context context, List<PlaceModel> model) {
         this.context = context;
         this.list = model;
     }
@@ -44,20 +50,25 @@ public class ProjectAdapter extends BaseAdapter {
         LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         View itemView = inflater.inflate(R.layout.item_fragment_dashboard, viewGroup, false);
 
-        ((TextView) itemView.findViewById(R.id.project_name)).setText(list.get(i).getName());
-        ((TextView) itemView.findViewById(R.id.project_description)).setText(list.get(i).getDescription());
+        ((TextView) itemView.findViewById(R.id.project_name)).setText(list.get(i).getTitle());
 
         CircleImageView img = (CircleImageView) itemView.findViewById(R.id.project_image);
 
-        if (list.get(i).getImageUri() != null) {
+        if (list.get(i).getIcon() != null) {
             Picasso.with(context)
-                    .load(list.get(i).getImageUri())
+                    .load(Constants.BASE_URL + list.get(i).getIcon())
+                    .resize(50,50)
                     .into(img);
         }
-        else {
-            img.setImageResource(R.drawable.circle);
-        }
+        MaterialRatingBar starBar = itemView.findViewById(R.id.star_bar);
+        float rate = calculateRate(list.get(i).getLocationRate(), list.get(i).getServiceRate(), list.get(i).getComfortRate());
+        Log.e(TAG, "rate=" + rate);
+        starBar.setRating(rate);
+
+        //Todo add tags
+
         return itemView;
     }
+
 
 }

@@ -8,6 +8,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapView;
+import com.google.android.gms.maps.MapsInitializer;
+import com.google.android.gms.maps.OnMapReadyCallback;
 import com.hack.apps.starter.auth.facebook.FacebookAuth;
 import com.hack.apps.starter.auth.facebook.FacebookPostActivity;
 import com.hack.apps.starter.auth.vk.VkAuth;
@@ -30,6 +34,7 @@ import butterknife.OnClick;
 import static com.hack.apps.starter.db.DB.initDB;
 
 public class MainActivity extends AppCompatActivity {
+    public static String TAG = "MainActivity";
 
     @BindView(R.id.facebookActivity)
     Button facebook;
@@ -39,7 +44,6 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
-
 
     @Override
     protected void onResume() {
@@ -56,7 +60,6 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
         finish();
     }
-
 
     @OnClick(R.id.facebookActivity)
     public void facebookClick(View view) {
@@ -101,10 +104,34 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initDB(MainActivity.this);
 
+        initMap();
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
+    //    Initialize Map to download play services
+    public void initMap() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    MapsInitializer.initialize(getApplicationContext());    //init client version
+                    MapView mv = new MapView(getApplicationContext());        //init package version
+                    mv.getMapAsync(new OnMapReadyCallback() {
+                        @Override
+                        public void onMapReady(GoogleMap googleMap) {
+                            Log.e(TAG, "onMapReady");
+                        }
+                    });
+                    mv.onCreate(null);
+                    mv.onPause();
+                    mv.onDestroy();
+                } catch (Exception ignored) {
+
+                }
+            }
+        }).start();
+    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardUseCompatPadding="true"
-    android:layout_margin="10dp">
+    android:descendantFocusability="blocksDescendants"
+    android:layout_margin="10dp"
+    app:cardUseCompatPadding="true">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,35 +18,37 @@
 
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/project_image"
-            android:src="@color/colorGrey"
             android:layout_width="50dp"
-            android:layout_height="50dp" />
+            android:layout_height="50dp"
+            android:src="@color/colorGrey" />
 
         <LinearLayout
-            android:orientation="vertical"
-            android:gravity="center_vertical"
-            android:layout_weight="1"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
             <TextView
                 android:id="@+id/project_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="@string/project_name"
                 android:layout_marginTop="10dp"
+                android:text="@string/place_name"
                 android:textColor="#000"
                 android:textSize="20sp" />
-            <TextView
-                android:id="@+id/project_description"
+
+            <me.zhanghai.android.materialratingbar.MaterialRatingBar
+                android:id="@+id/star_bar"
+                style="@style/Widget.MaterialRatingBar.RatingBar.Small"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="20dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginRight="10dp"
-                android:text="@string/project_description"
-                android:textSize="14sp" />
+                android:layout_marginTop="10dp" />
         </LinearLayout>
 
     </LinearLayout>

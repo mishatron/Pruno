@@ -43,8 +43,6 @@ public class OnboardingActivity extends AppCompatActivity {
     private ProfileEditSecondFrament secondFrgment = new ProfileEditSecondFrament();
     private ProfileEditThirdFrament thirdFrgment = new ProfileEditThirdFrament();
 
-    @BindView(R.id.toolbar_text)
-    TextView toolbarText;
 
     @BindView(R.id.text_view_next_finish)
     TextView nextFinish;
@@ -80,7 +78,6 @@ public class OnboardingActivity extends AppCompatActivity {
         mViewPager.setAdapter(mSectionsPagerAdapter);
         mViewPager.setOffscreenPageLimit(3);
 
-        toolbarText.setText(getString(R.string.app_name));
     }
 
     @OnClick(R.id.text_view_next_finish)

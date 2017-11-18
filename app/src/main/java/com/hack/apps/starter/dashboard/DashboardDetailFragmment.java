@@ -17,7 +17,7 @@ import butterknife.OnItemClick;
 
 public class DashboardDetailFragmment extends Fragment {
 
-    @BindView(R.id.projects_list_view)
+    @BindView(R.id.place_list_view)
     ListView projectListView;
 
 

@@ -11,7 +11,6 @@ import com.facebook.FacebookException;
 import com.facebook.login.LoginManager;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
-import com.google.firebase.auth.FirebaseAuth;
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.callback.LoginCallback;
 import com.hack.apps.starter.db.UserDB;
@@ -95,8 +94,6 @@ public class FacebookAuth extends AppCompatActivity implements LoginCallback {
     }
 
     public void logOut() {
-        FirebaseAuth.getInstance().signOut();
-
         LoginManager.getInstance().logOut();
 
 
