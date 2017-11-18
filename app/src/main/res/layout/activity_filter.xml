@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".filter.FilterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Можливості"
+                android:textColor="#123"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <android.support.v7.widget.CardView
+                android:id="@+id/flexible.example.cardview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                app:cardBackgroundColor="@android:color/white"
+                app:cardCornerRadius="4dp"
+                app:cardElevation="4dp"
+                app:contentPaddingBottom="10dp"
+                app:contentPaddingLeft="10dp"
+                app:contentPaddingRight="10dp"
+                app:contentPaddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:id="@+id/bMaterials"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/ivProfileMaterials"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="#543" />
+
+                        <TextView
+                            android:id="@+id/tvProfileMaterials"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Робота"
+                            android:textColor="#000" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#dadada" />
+
+                    <LinearLayout
+                        android:id="@+id/bSchedule"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/ivProfileSchedule"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="#123" />
+
+                        <TextView
+                            android:id="@+id/tvProfileSchedule"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:gravity="center"
+                            android:text="Відпочинок"
+                            android:textColor="#000" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="1dp"
+                        android:layout_height="match_parent"
+                        android:background="#dadada" />
+
+                    <LinearLayout
+                        android:id="@+id/bMess"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#fff"
+                        android:gravity="center"
+                        android:orientation="vertical"
+                        android:padding="5dp">
+
+                        <ImageView
+                            android:id="@+id/ivProfileMess"
+                            android:layout_width="40dp"
+                            android:layout_height="40dp"
+                            android:src="#123" />
+
+                        <TextView
+                            android:id="@+id/tvProfileMess"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:text="Іжа"
+                            android:textColor="#000" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Ціна (грн/час)"
+                android:textColor="#123"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <com.appyvet.materialrangebar.RangeBar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:mrb_pinMaxFont="10sp"
+                app:mrb_pinTextColor="#ACD123"
+                app:mrb_rangeBarPaddingBottom="12dp"
+                app:mrb_selectorBoundaryColor="#123"
+                app:mrb_selectorBoundarySize="2dp"
+                app:mrb_selectorSize="10dp"
+                app:mrb_tickEnd="10"
+                app:mrb_tickInterval="1"
+                app:mrb_tickStart="5" />
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp">
+
+                <TextView
+                    android:id="@+id/leftPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="12312"
+                    android:textSize="25dp" />
+
+                <TextView
+                    android:id="@+id/rightPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:text="12312"
+                    android:textSize="25dp" />
+
+
+            </RelativeLayout>
+
+
+            <android.support.v7.widget.CardView
+                android:layout_margin="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_margin="10dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        app:srcCompat="@drawable/ic_moon"
+                        android:layout_width="30dp"
+                        android:layout_height="30dp" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:layout_marginStart="10dp"
+                        android:textColor="#123"
+                        android:textSize="22sp"
+                        android:text="Працюють вночі"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                    <CheckBox
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+
+
+                </LinearLayout>
+
+            </android.support.v7.widget.CardView>
+
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="Рейтинг"
+                android:textColor="#123"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Комфорт [12-123]"
+                android:textColor="#123"
+                android:textSize="20sp"/>
+
+
+            <com.appyvet.materialrangebar.RangeBar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:mrb_pinMaxFont="10sp"
+                app:mrb_pinTextColor="#ACD123"
+                app:mrb_rangeBarPaddingBottom="12dp"
+                app:mrb_selectorBoundaryColor="#123"
+                app:mrb_selectorBoundarySize="2dp"
+                app:mrb_selectorSize="10dp"
+                app:mrb_tickEnd="10"
+                app:mrb_tickInterval="1"
+                app:mrb_tickStart="5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Якість [12-123]"
+                android:textColor="#123"
+                android:textSize="20sp"/>
+
+
+            <com.appyvet.materialrangebar.RangeBar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:mrb_pinMaxFont="10sp"
+                app:mrb_pinTextColor="#ACD123"
+                app:mrb_rangeBarPaddingBottom="12dp"
+                app:mrb_selectorBoundaryColor="#123"
+                app:mrb_selectorBoundarySize="2dp"
+                app:mrb_selectorSize="10dp"
+                app:mrb_tickEnd="10"
+                app:mrb_tickInterval="1"
+                app:mrb_tickStart="5" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Розташування [1-5]"
+                android:textColor="#123"
+                android:textSize="20sp"/>
+
+
+            <com.appyvet.materialrangebar.RangeBar
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                app:mrb_pinMaxFont="10sp"
+                app:mrb_pinTextColor="#ACD123"
+                app:mrb_rangeBarPaddingBottom="12dp"
+                app:mrb_selectorBoundaryColor="#123"
+                app:mrb_selectorBoundarySize="2dp"
+                app:mrb_selectorSize="10dp"
+                app:mrb_tickEnd="10"
+                app:mrb_tickInterval="1"
+                app:mrb_tickStart="5" />
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <com.andexert.library.RippleView
+        android:id="@+id/apply"
+        rv_centered="true"
+        android:layout_width="match_parent"
+        android:layout_height="?android:actionBarSize"
+        android:layout_margin="7dp"
+        android:background="@android:color/holo_blue_dark">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="?android:actionBarSize"
+                android:layout_centerInParent="true"
+                android:padding="10dp"
+                android:src="@android:drawable/ic_menu_edit" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Застосувати"
+                android:textColor="#fff"
+                android:textSize="25dp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </com.andexert.library.RippleView>
+
+
+</LinearLayout>

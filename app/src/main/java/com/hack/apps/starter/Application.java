@@ -8,6 +8,8 @@ import android.util.Base64;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.facebook.drawee.backends.pipeline.Fresco;
+
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -24,6 +26,8 @@ public class Application extends MultiDexApplication {
     @Override
     public void onCreate() {
         super.onCreate();
+
+        Fresco.initialize(this);
 
         AppCompatDelegate.setCompatVectorFromResourcesEnabled(true);
         HashKey();

@@ -7,16 +7,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
-import com.hack.apps.starter.search.SearchFragmment;
+import com.hack.apps.starter.place.PlaceDetailsFragment;
 import com.hack.apps.starter.settings.CommonSettings;
 import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.Permissions;
-import com.stfalcon.socialauthhelper.vk.VkClient;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -25,12 +23,6 @@ import static com.hack.apps.starter.db.DB.initDB;
 
 public class MainActivity extends AppCompatActivity {
 
-
-    @BindView(R.id.facebookActivity)
-    Button facebook;
-
-    @BindView(R.id.facebookPost)
-    Button facebookPost;
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
@@ -47,7 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         UserDB.findById(CommonSettingsDB.get().getUserId());
 
-        Log.e("user id", CommonSettingsDB.get().getUserId()+"");
+        Log.e("user id", CommonSettingsDB.get().getUserId() + "");
 
 
     }
@@ -65,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
             case R.id.navigation_search:
-                FragmentUtil.replaceFragment(MainActivity.this, SearchFragmment.class, null, false);
+                FragmentUtil.replaceFragment(MainActivity.this, PlaceDetailsFragment.class, null, false);
 
                 return true;
             case R.id.navigation_bookmarks:
