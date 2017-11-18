@@ -81,7 +81,7 @@
         <activity android:name=".filter.FilterActivity"/>
 
         <activity
-            android:name=".dashboard.MapActivity"
+            android:name=".dashboard.MapFragment"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="adjustResize" />

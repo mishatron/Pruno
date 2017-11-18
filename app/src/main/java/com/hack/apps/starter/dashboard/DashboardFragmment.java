@@ -15,6 +15,7 @@ import com.hack.apps.starter.R;
 import com.hack.apps.starter.adapter.PlaceAdapter;
 import com.hack.apps.starter.model.PlaceModel;
 import com.hack.apps.starter.model.PlaceResultModel;
+import com.hack.apps.starter.place.PlaceInfoFragment;
 import com.hack.apps.starter.retrofit.RetrofitUtil;
 import com.hack.apps.starter.util.BundleUtil;
 import com.hack.apps.starter.util.Constants;
@@ -22,7 +23,6 @@ import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.RatingUtil;
 
 import java.io.IOException;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -65,12 +65,12 @@ public class DashboardFragmment extends Fragment {
         String name = model.getTitle();
         String photo = model.getIcon();
         float rating = RatingUtil.calculateRate(model.getLocationRate(), model.getServiceRate(), model.getComfortRate());
-//        FragmentUtil.replaceFragment(getActivity(), DashboardDetailFragmment.class, BundleUtil.getBundle(id, photo, name, rating), true);
-        openMap();
+        FragmentUtil.replaceFragment(getActivity(), PlaceInfoFragment.class, BundleUtil.getBundle(id), true);
+//        openMap();
     }
 
     void openMap() {
-        Intent intent = new Intent(getActivity(), MapActivity.class);
+        Intent intent = new Intent(getActivity(), MapFragment.class);
         intent.putExtra(Constants.KEY_LAT, 49.266140);
         intent.putExtra(Constants.KEY_LNG, 29.753952);
         intent.putExtra(Constants.KEY_TITLE, "Title");

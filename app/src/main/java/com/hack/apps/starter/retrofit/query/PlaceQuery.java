@@ -1,11 +1,11 @@
 package com.hack.apps.starter.retrofit.query;
 
 import com.hack.apps.starter.model.PlaceResultModel;
-
-import java.util.List;
+import com.hack.apps.starter.place.entity.Place;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 
 
 public interface PlaceQuery {
@@ -21,5 +21,6 @@ public interface PlaceQuery {
     @GET("/placelist")
     Call<PlaceResultModel> getPlaceList();
 
-
+    @GET("/placelist/{id}")
+    Call<Place> getPlaceDetails(@Path("id") Integer placeId);
 }

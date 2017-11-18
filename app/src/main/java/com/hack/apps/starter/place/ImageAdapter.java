@@ -8,6 +8,7 @@ import android.widget.BaseAdapter;
 
 import com.facebook.drawee.view.SimpleDraweeView;
 import com.hack.apps.starter.R;
+import com.hack.apps.starter.util.Constants;
 import com.stfalcon.frescoimageviewer.ImageViewer;
 
 import java.util.List;
@@ -50,7 +51,7 @@ public class ImageAdapter extends BaseAdapter {
 
         final SimpleDraweeView imageView = convertView.findViewById(R.id.image);
 
-        imageView.setImageURI(imageUrl);
+        imageView.setImageURI(Constants.BASE_URL + imageUrl);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override

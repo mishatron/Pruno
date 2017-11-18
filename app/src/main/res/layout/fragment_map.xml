@@ -3,8 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/content_toolbar" />
-
     <com.google.android.gms.maps.MapView
         android:id="@+id/map_view"
         android:layout_width="fill_parent"

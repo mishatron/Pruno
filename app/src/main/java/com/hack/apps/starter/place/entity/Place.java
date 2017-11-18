@@ -1,28 +1,59 @@
 package com.hack.apps.starter.place.entity;
 
+import com.google.gson.annotations.Expose;
+import com.google.gson.annotations.SerializedName;
 import com.orm.SugarRecord;
 
-import java.util.List;
+import java.io.Serializable;
 
-public class Place extends SugarRecord {
+//{"tags": ["\u0420\u041e\u0411\u041e\u0422\u0410"], "pricePerHour": 5.0, "photos": ["/upload/images/info64.png"], "address": "\u043d\u0435 \u0441\u043a\u0430\u0436\u0443", "pricePerDay": 5.0, "longitude": 4.0, "description": "\u043c\u0456\u0439 \u0433\u0430\u0440\u0430\u0436", "icon": "/upload/images/VBIF512.png", "serviceRate": 0.0, "locationRate": 0.0, "comfortRate": 0.0, "latitude": 5.0, "comments": [], "title": "\u0413\u0430\u0440\u0430\u0436", "workAtNight": false}
 
-    private String title;
-    private String icon;
-    private String description;
 
-    private Double longitude;
-    private Double latitude;
+public class Place extends SugarRecord implements Serializable {
 
-    private Double pricePerHour;
-    private Double pricePerDay;
+    @SerializedName("title")
+    @Expose
+    public String title;
 
-    private List<String> photos;
+    @SerializedName("icon")
+    @Expose
+    public String icon;
 
-    private Double comfortRate;
-    private Double serviceRate; // якість
-    private Double locationRate;
+    @SerializedName("description")
+    @Expose
+    public String description;
 
-    private List<String> tags;
+    @SerializedName("longitude")
+    @Expose
+    public Double longitude;
+
+    @SerializedName("latitude")
+    @Expose
+    public Double latitude;
+
+    @SerializedName("pricePerHour")
+    @Expose
+    public Double pricePerHour;
+
+    @SerializedName("photos")
+    @Expose
+    public String[] photos;
+
+    @SerializedName("comfortRate")
+    @Expose
+    public Float comfortRate;
+
+    @SerializedName("serviceRate")
+    @Expose
+    public Float serviceRate;
+
+    @SerializedName("locationRate")
+    @Expose
+    public Float locationRate;
+
+    @SerializedName("tags")
+    @Expose
+    public String[] tags;
 
 
     public String getTitle() {
@@ -65,43 +96,43 @@ public class Place extends SugarRecord {
         this.pricePerHour = pricePerHour;
     }
 
-    public Double getPricePerDay() {
-        return pricePerDay;
-    }
-
-    public void setPricePerDay(Double pricePerDay) {
-        this.pricePerDay = pricePerDay;
-    }
-
-    public List<String> getPhotos() {
+    public String[] getPhotos() {
         return photos;
     }
 
-    public void setPhotos(List<String> photos) {
+    public void setPhotos(String[] photos) {
         this.photos = photos;
     }
 
-    public Double getComfortRate() {
+    public String[] getTags() {
+        return tags;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
+    }
+
+    public Float getComfortRate() {
         return comfortRate;
     }
 
-    public void setComfortRate(Double comfortRate) {
+    public void setComfortRate(Float comfortRate) {
         this.comfortRate = comfortRate;
     }
 
-    public Double getServiceRate() {
+    public Float getServiceRate() {
         return serviceRate;
     }
 
-    public void setServiceRate(Double serviceRate) {
+    public void setServiceRate(Float serviceRate) {
         this.serviceRate = serviceRate;
     }
 
-    public Double getLocationRate() {
+    public Float getLocationRate() {
         return locationRate;
     }
 
-    public void setLocationRate(Double locationRate) {
+    public void setLocationRate(Float locationRate) {
         this.locationRate = locationRate;
     }
 
@@ -113,11 +144,4 @@ public class Place extends SugarRecord {
         this.icon = icon;
     }
 
-    public List<String> getTags() {
-        return tags;
-    }
-
-    public void setTags(List<String> tags) {
-        this.tags = tags;
-    }
 }

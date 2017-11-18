@@ -5,35 +5,35 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.GridView;
+import android.widget.TextView;
 
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.filter.FilterActivity;
+import com.hack.apps.starter.place.entity.Place;
+import com.hack.apps.starter.retrofit.RetrofitUtil;
+import com.hack.apps.starter.util.Constants;
 import com.wefika.flowlayout.FlowLayout;
 
+import java.io.IOException;
 import java.util.Arrays;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import me.zhanghai.android.materialratingbar.MaterialRatingBar;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class PlaceDetailsFragment extends Fragment {
 
     private static final String TAG = PlaceDetailsFragment.class.getCanonicalName();
 
-
-    private static final String[] images = {
-            "https://pp.vk.me/c630619/v630619423/4637a/vAOodrqPzQM.jpg",
-            "https://pp.vk.me/c630619/v630619423/46395/71QKIPW6BWM.jpg",
-            "https://pp.vk.me/c630619/v630619423/46383/GOTf1IvHKoc.jpg",
-            "https://pp.vk.me/c630619/v630619423/4638c/i1URx2fWj20.jpg",
-            "https://pp.vk.me/c630619/v630619423/4639e/BPoHv4xEikA.jpg",
-            "https://pp.vk.me/c630619/v630619423/463a7/9EjA0oqA_yQ.jpg",
-            "https://pp.vk.me/c630619/v630619423/463b0/VLPAZQJ0kuI.jpg",
-            "https://pp.vk.me/c630619/v630619423/463b9/O3-hk8kIvdY.jpg",
-            "https://pp.vk.me/c630619/v630619423/463c2/WgtvE0FQwVY.jpg"
-    };
-
+    private Call detailsCall;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -41,42 +41,93 @@ public class PlaceDetailsFragment extends Fragment {
 
     }
 
+    @BindView(R.id.title)
+    TextView title;
+    @BindView(R.id.description)
+    TextView description;
+    @BindView(R.id.tags)
+    FlowLayout flowLayout;
 
-    Toolbar toolbar;
+    @BindView(R.id.comfortRate)
+    MaterialRatingBar comfortRate;
+    @BindView(R.id.serviceRate)
+    MaterialRatingBar serviceRate;
+    @BindView(R.id.locationRate)
+    MaterialRatingBar locationRate;
+
+    @BindView(R.id.gridview)
+    GridView gridView;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_place_details, container, false);
 
-        toolbar = view.findViewById(R.id.toolbar);
+        ButterKnife.bind(this, view);
 
-        toolbar.setTitle("Categories");
-        toolbar.inflateMenu(R.menu.categories_menu);
-
-        toolbar.setOnMenuItemClickListener(item -> {
-            if (item.getItemId() == R.id.filter) {
-
-                openDialogActivity();
-
-            }
-            return false;
-        });
+        comfortRate.setEnabled(false);
+        serviceRate.setEnabled(false);
+        locationRate.setEnabled(false);
 
 
-        GridView gridView = view.findViewById(R.id.gridview);
-        ImageAdapter imagesAdapter = new ImageAdapter(getActivity(), Arrays.asList(images));
-        gridView.setAdapter(imagesAdapter);
+        Integer placeId = getArguments().getInt(Constants.KEY_ID);
 
-        FlowLayout flowLayout = view.findViewById(R.id.tags);
+        getPlaceDetails(placeId);
 
-        new TagAdapter(flowLayout, getActivity(), Arrays.asList("awrgq", "wwerg", "Wetew", "rewweq"));
         return view;
     }
 
     void openDialogActivity() {
 
         startActivity(new Intent(getActivity(), FilterActivity.class));
+    }
+
+    private void updateView(Place place) {
+
+        ImageAdapter imagesAdapter = new ImageAdapter(getActivity(), Arrays.asList(place.getPhotos()));
+        gridView.setAdapter(imagesAdapter);
+
+        new TagAdapter(flowLayout, getActivity(), Arrays.asList(place.getTags()));
+
+        title.setText(place.getTitle());
+        description.setText(place.getDescription());
+
+        comfortRate.setRating(place.getComfortRate());
+        serviceRate.setRating(place.getServiceRate());
+        locationRate.setRating(place.getLocationRate());
+
+    }
+
+
+    private void getPlaceDetails(Integer placeId) {
+        detailsCall = RetrofitUtil.getPlaceQuery().getPlaceDetails(placeId);
+        detailsCall.enqueue(new Callback<Place>() {
+            @Override
+            public void onResponse(Call<Place> call, Response<Place> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i(TAG, "makeLikeRequest successful");
+                        Place model = response.body();
+
+                        updateView(model);
+
+                    }
+                } else {
+                    Log.e(TAG, "GetErrCode" + String.valueOf(response.code()));
+                    try {
+                        Log.e(TAG, "GetErrBody" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e(TAG, "Unable to submit get." + t.toString());
+                Log.e(TAG, "Unable to submit call." + call.request().body());
+            }
+        });
     }
 
 

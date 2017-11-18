@@ -12,19 +12,24 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.hack.apps.starter.R;
+import com.hack.apps.starter.dashboard.MapFragment;
 
 
 public class PlaceInfoFragment extends Fragment {
 
+    private static final String TAG = PlaceInfoFragment.class.getCanonicalName();
 
     private String[] tabs = new String[]{"Деталі", "Розташування", "Коментарі"};
 
+    Bundle bundle;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
-
         View view = inflater.inflate(R.layout.fragment_place_info, container, false);
+
+        this.bundle = getArguments();
+
 
         ViewPager mViewPager;
 
@@ -53,13 +58,17 @@ public class PlaceInfoFragment extends Fragment {
         @Override
         public Fragment getItem(int i) throws NullPointerException {
 
-            if (i == 0)
-                return new PlaceDetailsFragment();
-            else if (i == 1) {
-                // TODO
-            } else if (i == 2) return new FragmentComments();
+            Fragment fragment = null;
 
-            return null;
+            if (i == 0)
+                fragment = new PlaceDetailsFragment();
+            else if (i == 1) {
+                fragment = new MapFragment();
+            } else if (i == 2) fragment = new FragmentComments();
+
+            fragment.setArguments(bundle);
+
+            return fragment;
         }
 
         @Override
