@@ -9,4 +9,9 @@
     <color name="colorGrey">#c2c2c2</color>
     <color name="colorGreyPressed">#9e9e9e</color>
     <color name="colorWhite">#ffffff</color>
+
+    <color name="colorOnboardingFirst">#ff6b4e</color>
+    <color name="colorOnboardingSecond">#6685ec</color>
+    <color name="colorOnboardingThird">#8a56d2</color>
+
 </resources>

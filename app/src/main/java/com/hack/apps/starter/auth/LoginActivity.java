@@ -16,6 +16,8 @@ import com.hack.apps.starter.onboarding.OnboardingActivity;
 import com.hack.apps.starter.profile.entity.User;
 import com.hack.apps.starter.settings.CommonSettings;
 import com.stfalcon.socialauthhelper.fb.FacebookClient;
+import com.stfalcon.socialauthhelper.gplus.GooglePlusClient;
+import com.stfalcon.socialauthhelper.gplus.model.GooglePlusProfile;
 import com.stfalcon.socialauthhelper.vk.VkClient;
 
 import butterknife.BindView;
@@ -31,12 +33,15 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
     private VkClient vkClient;
 
     private FacebookClient facebookClient;
-
+    private GooglePlusClient googlePlusClient;
     @BindView(R.id.fb)
     ImageView facebook;
 
     @BindView(R.id.vk)
     ImageView vk;
+
+    @BindView(R.id.gp)
+    ImageView gp;
 
     @OnClick(R.id.vk)
     public void vkLogin(View view) {
@@ -53,6 +58,17 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
 
             loginUser(vkProfile.getId(), vkProfile.getFirstName() + " " + vkProfile.getLastName(), vkClient.getAccessToken());
 
+        });
+
+    }
+    @OnClick(R.id.gp)
+    public void gpLogin(View view) {
+
+        googlePlusClient.getProfile(new GooglePlusClient.GooglePlusResultCallback() {
+            @Override
+            public void onProfileLoaded(GooglePlusProfile googlePlusProfile) {
+                loginUser(Long.parseLong(googlePlusProfile.getId()), googlePlusProfile.getName(), googlePlusProfile.getToken());
+            }
         });
 
     }
@@ -140,6 +156,9 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
 
         facebookClient = new FacebookClient(this);
 
+        googlePlusClient = new GooglePlusClient(this,
+                getString(R.string.googleClientId));//Web client id
+
     }
 
     @Override
@@ -165,6 +184,8 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
         vkClient.onActivityResult(requestCode, resultCode, data);
 
         facebookClient.onActivityResult(requestCode, resultCode, data);
+
+        googlePlusClient.onActivityResult(requestCode, resultCode, data);
 
     }
 

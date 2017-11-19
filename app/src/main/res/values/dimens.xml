@@ -11,4 +11,12 @@
     <dimen name="profile_linear_padding">26dp</dimen>
     <dimen name="profile_linear_padding_bottom">40dp</dimen>
     <dimen name="profile_first_edit_padding">16dp</dimen>
+
+    <!--OnBoarding-->
+    <dimen name="on_board_text_vertical_padding">26dp</dimen>
+    <dimen name="on_board_text_horizontal_padding">16dp</dimen>
+    <dimen name="ripple_padding">10dp</dimen>
+
+    <dimen name="onboarding_horizontal_margin">16dp</dimen>
+    <dimen name="onboarding_vertical_margin">20dp</dimen>
 </resources>

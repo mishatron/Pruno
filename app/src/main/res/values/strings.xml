@@ -52,4 +52,5 @@
 
     <string name="place_name">Project Name</string>
     <string name="google_maps_api_debug_key">AIzaSyA6qY-TGUKX6ZMQpeYP4N7HNdHCg5U3xLo	</string>
+    <string name="googleClientId">1019344898120-sopt2ic00gfm72uiejfe9hemq9pk96qr.apps.googleusercontent.com</string>
 </resources>

@@ -5,18 +5,13 @@ import android.os.Bundle;
 import android.support.design.widget.BottomNavigationView;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.filter.entity.Filter;
 import com.hack.apps.starter.place.PlaceDetailsFragment;
-import com.hack.apps.starter.settings.CommonSettings;
 import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.Permissions;
 
@@ -32,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
+
 
     @Override
     protected void onResume() {
@@ -81,62 +77,17 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initDB(MainActivity.this);
 
-        initMap();
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
     }
 
-    //    Initialize Map to download play services
-    public void initMap() {
-        new Thread(() -> {
-            try {
-                MapsInitializer.initialize(getApplicationContext());    //init client version
-                MapView mv = new MapView(getApplicationContext());        //init package version
-                mv.getMapAsync(googleMap -> Log.e(TAG, "onMapReady"));
-                mv.onCreate(null);
-                mv.onPause();
-                mv.onDestroy();
-            } catch (Exception ignored) {
-
-            }
-        }).start();
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-
-        getMenuInflater().inflate(R.menu.main_menu, menu);
-
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-
-        int id = item.getItemId();
-
-        if (id == R.id.exit) {
-
-            CommonSettings commonSettings = CommonSettingsDB.get();
-            commonSettings.setUserLoggined(false);
-            commonSettings.setUserId(-1L);
-            CommonSettingsDB.save(commonSettings);
-
-            openLogin();
-            finish();
-
-            return false;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 
 //        if (requestCode == 1) {
 
-        Log.e("REQUEST CODE", "Apply filter "+resultCode);
+        Log.e("REQUEST CODE", "Apply filter " + resultCode);
 
 //        }
 

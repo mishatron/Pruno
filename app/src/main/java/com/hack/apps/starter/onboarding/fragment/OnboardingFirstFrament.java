@@ -13,7 +13,7 @@ import com.hack.apps.starter.R;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 
-public class ProfileEditFirstFrament extends Fragment {
+public class OnboardingFirstFrament extends Fragment {
     public static String TAG = "ProfileFrament";
     private Unbinder unbinder;
 

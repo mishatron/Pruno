@@ -2,7 +2,6 @@ package com.hack.apps.starter.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.hack.apps.starter.util.RatingUtil;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -31,19 +30,25 @@ public class PlaceModel implements Serializable {
 
     @SerializedName("comfortRate")
     @Expose
-    private float comfortRate;
+    private Float comfortRate;
+
+    @SerializedName("pricePerHour")
+    @Expose
+    private Float pricePerHour;
+
+
+    public Float getPricePerHour() {
+        return pricePerHour;
+    }
 
     @SerializedName("serviceRate")
+
     @Expose
     private float serviceRate;
 
     @SerializedName("locationRate")
     @Expose
     private float locationRate;
-
-    @SerializedName("pricePerHour")
-    @Expose
-    private float pricePerHour;
 
 
     @Override
@@ -93,14 +98,6 @@ public class PlaceModel implements Serializable {
         this.locationRate = locationRate;
     }
 
-    public float getPricePerHour() {
-        return pricePerHour;
-    }
-
-    public void setPricePerHour(float pricePerHour) {
-        this.pricePerHour = pricePerHour;
-    }
-
     public int getPlace_id() {
         return place_id;
     }
@@ -117,19 +114,20 @@ public class PlaceModel implements Serializable {
         return tags;
     }
 
-    public float getComfortRate() {
+    public Float getComfortRate() {
         return comfortRate;
     }
 
-    public float getServiceRate() {
+    public Float getServiceRate() {
         return serviceRate;
     }
 
-    public float getLocationRate() {
+    public Float getLocationRate() {
         return locationRate;
     }
 
-    public PlaceModel(int place_id, String title, String icon, String[] tags, float comfortRate, float serviceRate, float locationRate) {
+    public PlaceModel(float midRate, int place_id, String title, String icon, String[] tags, float comfortRate, float serviceRate, float locationRate, float pricePerHour) {
+        this.midRate = midRate;
         this.place_id = place_id;
         this.title = title;
         this.icon = icon;
@@ -137,9 +135,8 @@ public class PlaceModel implements Serializable {
         this.comfortRate = comfortRate;
         this.serviceRate = serviceRate;
         this.locationRate = locationRate;
-        midRate = RatingUtil.calculateRate(locationRate, serviceRate, comfortRate);
+        this.pricePerHour = pricePerHour;
     }
-
 
     public float getMidRate() {
         return midRate;

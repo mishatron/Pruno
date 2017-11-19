@@ -14,7 +14,8 @@ public class Permissions {
     private static String[] permissions = new String[]{
             Manifest.permission.INTERNET,
             Manifest.permission.READ_EXTERNAL_STORAGE,
-            Manifest.permission.CAMERA
+            Manifest.permission.ACCESS_COARSE_LOCATION,
+            Manifest.permission.ACCESS_FINE_LOCATION
 
     };
 
@@ -56,7 +57,6 @@ public class Permissions {
     public static boolean isLocationGranted(Activity activity) {
         return checkForGrant(activity, locationkPermissions);
     }
-
 
 
 }

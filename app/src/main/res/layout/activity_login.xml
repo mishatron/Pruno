@@ -3,29 +3,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#286caf"
+    android:background="#3F51B5
+"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="com.hack.apps.starter.auth.LoginActivity">
+
+    <ImageView
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_margin="10dp"
+        android:src="@drawable/app_img" />
 
 
     <LinearLayout
-        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/vk"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:src="#fff" />
+            android:src="@drawable/vk" />
+
+        <ImageView
+            android:id="@+id/gp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_margin="10dp"
+            android:src="@drawable/gplus" />
 
         <ImageView
             android:id="@+id/fb"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_margin="10dp"
-            android:src="@drawable/com_facebook_button_icon" />
-
+            android:src="@drawable/fb" />
 
     </LinearLayout>
 

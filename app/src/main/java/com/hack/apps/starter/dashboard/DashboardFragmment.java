@@ -175,8 +175,8 @@ public class DashboardFragmment extends Fragment {
                         Collections.sort(model, (o1, o2) -> (int) (o1.getMidRate() - o2.getMidRate()));
 
                         for (PlaceModel p : model) {
-                            minPrice = Math.min(minPrice, (int) p.getPricePerHour());
-                            maxPrice = Math.max(maxPrice, (int) p.getPricePerHour());
+                            minPrice = Math.min(minPrice, p.getPricePerHour().intValue());
+                            maxPrice = Math.max(maxPrice, p.getPricePerHour().intValue());
                         }
 
                         if (model != null) {
