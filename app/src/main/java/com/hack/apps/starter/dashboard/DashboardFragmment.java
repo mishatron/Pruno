@@ -112,11 +112,17 @@ public class DashboardFragmment extends Fragment {
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
         Log.i(TAG, "item clicked");
         PlaceModel model = (PlaceModel) adapterView.getItemAtPosition(i);
-        int id = model.getPlace_id();
+        Long id = model.getPlace_id();
         String name = model.getTitle();
         String photo = model.getIcon();
+        Double lat = model.getLatitude();
+        Double lng = model.getLongitude();
+
+        Log.e("LAT", lat+"");
+        Log.e("LNG", lng+"");
+
         float rating = RatingUtil.calculateRate(model.getLocationRate(), model.getServiceRate(), model.getComfortRate());
-        FragmentUtil.replaceFragment(getActivity(), PlaceInfoFragment.class, BundleUtil.getBundle(id), true);
+        FragmentUtil.replaceFragment(getActivity(), PlaceInfoFragment.class, BundleUtil.getBundle(id.intValue(), lat, lng), true);
 //        openMap();
     }
 

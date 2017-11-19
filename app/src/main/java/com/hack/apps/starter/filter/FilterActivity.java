@@ -244,12 +244,22 @@ public class FilterActivity extends AppCompatActivity {
 
         reset.setOnClickListener(rippleView -> {
 
-            MainActivity.filter = null;
-            close();
+            reset();
         });
 
     }
 
+    @Override
+    public void onBackPressed() {
+        reset();
+    }
+
+
+    private void reset(){
+
+        MainActivity.filter = null;
+        close();
+    }
 
     private void close() {
 

@@ -11,6 +11,10 @@ import java.io.Serializable;
 
 public class Place extends SugarRecord implements Serializable {
 
+    @SerializedName("place_id")
+    @Expose
+    public Long id;
+
     @SerializedName("title")
     @Expose
     public String title;
@@ -55,6 +59,28 @@ public class Place extends SugarRecord implements Serializable {
     @Expose
     public String[] tags;
 
+    @SerializedName("workAtNight")
+    @Expose
+    public Boolean workAtNight;
+
+
+    @Override
+    public Long getId() {
+        return id;
+    }
+
+    @Override
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public Boolean getWorkAtNight() {
+        return workAtNight;
+    }
+
+    public void setWorkAtNight(Boolean workAtNight) {
+        this.workAtNight = workAtNight;
+    }
 
     public String getTitle() {
         return title;

@@ -7,10 +7,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
 import com.hack.apps.starter.auth.LoginActivity;
+import com.hack.apps.starter.dashboard.BookmarksFragmment;
 import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.filter.entity.Filter;
+import com.hack.apps.starter.settings.SettingsFragmment;
 import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.Permissions;
 
@@ -56,9 +58,10 @@ public class MainActivity extends AppCompatActivity {
                 FragmentUtil.replaceFragment(MainActivity.this, DashboardFragmment.class, null, false);
                 return true;
             case R.id.navigation_bookmarks:
-//                FragmentUtil.replaceFragment(MainActivity.this, PlaceDetailsFragment.class, null, false);
+                FragmentUtil.replaceFragment(MainActivity.this, BookmarksFragmment.class, null, false);
                 return true;
             case R.id.navigation_settings:
+                FragmentUtil.replaceFragment(MainActivity.this, SettingsFragmment.class, null, false);
                 return true;
         }
         return false;
@@ -74,8 +77,10 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         initDB(MainActivity.this);
 
-
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
+
+
+        FragmentUtil.replaceFragment(MainActivity.this, DashboardFragmment.class, null, false);
     }
 
 

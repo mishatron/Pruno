@@ -19,10 +19,11 @@
 
 
             <TextView
+                android:layout_marginTop="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:text="Можливості"
+                android:text="Теги"
                 android:textColor="#123"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -62,7 +63,7 @@
                                 android:id="@+id/ivProfileMaterials"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="#543" />
+                                app:srcCompat="@drawable/ic_tag_work_black" />
 
                             <TextView
                                 android:id="@+id/tvProfileMaterials"
@@ -93,7 +94,7 @@
                                 android:id="@+id/ivProfileSchedule"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="#123" />
+                                app:srcCompat="@drawable/ic_tag_rest_black" />
 
                             <TextView
                                 android:id="@+id/tvProfileSchedule"
@@ -130,7 +131,7 @@
                                 android:id="@+id/ivProfileMess"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="#123" />
+                                app:srcCompat="@drawable/ic_tag_food_black" />
 
                             <TextView
                                 android:id="@+id/tvProfileMess"
@@ -160,7 +161,7 @@
                                 android:id="@+id/ivWiFi"
                                 android:layout_width="40dp"
                                 android:layout_height="40dp"
-                                android:src="#123" />
+                                app:srcCompat="@drawable/ic_tag_wifi_black" />
 
                             <TextView
                                 android:id="@+id/tvWiFi"

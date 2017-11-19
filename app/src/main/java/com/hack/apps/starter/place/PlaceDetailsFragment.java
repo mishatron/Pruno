@@ -1,7 +1,6 @@
 package com.hack.apps.starter.place;
 
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -9,14 +8,16 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hack.apps.starter.R;
-import com.hack.apps.starter.filter.FilterActivity;
 import com.hack.apps.starter.place.entity.Place;
 import com.hack.apps.starter.retrofit.RetrofitUtil;
 import com.hack.apps.starter.util.Constants;
+import com.squareup.picasso.Picasso;
 import com.wefika.flowlayout.FlowLayout;
 
 import java.io.IOException;
@@ -41,8 +42,16 @@ public class PlaceDetailsFragment extends Fragment {
 
     }
 
-    @BindView(R.id.title)
-    TextView title;
+
+    @BindView(R.id.icon)
+    ImageView icon;
+
+    @BindView(R.id.coins)
+    TextView coins;
+
+    @BindView(R.id.work_at_night)
+    CheckBox workAtNight;
+
     @BindView(R.id.description)
     TextView description;
     @BindView(R.id.tags)
@@ -77,11 +86,6 @@ public class PlaceDetailsFragment extends Fragment {
         return view;
     }
 
-    void openDialogActivity() {
-
-        startActivity(new Intent(getActivity(), FilterActivity.class));
-    }
-
     private void updateView(Place place) {
 
         ImageAdapter imagesAdapter = new ImageAdapter(getActivity(), Arrays.asList(place.getPhotos()));
@@ -91,7 +95,13 @@ public class PlaceDetailsFragment extends Fragment {
 
         PlaceInfoFragment.toolbar.setTitle(place.getTitle());
 
-        title.setText(place.getTitle());
+        coins.setText(place.getPricePerHour() + " грн");
+
+        workAtNight.setChecked(place.getWorkAtNight());
+        workAtNight.setEnabled(false);
+
+        Picasso.with(getActivity()).load(Constants.BASE_URL + place.getIcon()).into(icon);
+
         description.setText(place.getDescription());
 
         comfortRate.setRating(place.getComfortRate());
@@ -110,6 +120,8 @@ public class PlaceDetailsFragment extends Fragment {
                     if (response.body() != null) {
                         Log.i(TAG, "makeLikeRequest successful");
                         Place model = response.body();
+
+                        PlaceInfoFragment.place = model;
 
                         updateView(model);
 

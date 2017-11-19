@@ -7,10 +7,10 @@ import com.hack.apps.starter.R;
 
 public enum Tag {
 
-    WORK(R.drawable.ic_tag_work, Color.rgb(222, 0, 0), "РОБОТА"),
-    REST(R.drawable.ic_tag_rest, Color.rgb(0, 222, 0), "ВІДПОЧИНОК"),
-    FOOD(R.drawable.ic_tag_food, Color.rgb(0, 0, 222), "ЇЖА"),
-    WIFI(R.drawable.ic_tag_wifi, Color.rgb(222, 222, 0), "WI-FI");
+    WORK(R.drawable.ic_tag_work, Color.rgb(200, 0, 0), "РОБОТА"),
+    REST(R.drawable.ic_tag_rest, Color.rgb(255, 156, 64), "ВІДПОЧИНОК"),
+    FOOD(R.drawable.ic_tag_food, Color.rgb(0, 0, 200), "ЇЖА"),
+    WIFI(R.drawable.ic_tag_wifi, Color.rgb(0, 180, 0), "WI-FI");
 
     private int image;
     private int color;

@@ -12,9 +12,17 @@ import java.util.Arrays;
 public class PlaceModel implements Serializable {
     private float midRate;
 
+    public Long getPlace_id() {
+        return place_id;
+    }
+
+    public void setPlace_id(Long place_id) {
+        this.place_id = place_id;
+    }
+
     @SerializedName("place_id")
     @Expose
-    private int place_id;
+    private Long place_id;
 
     @SerializedName("title")
     @Expose
@@ -35,6 +43,14 @@ public class PlaceModel implements Serializable {
     @SerializedName("pricePerHour")
     @Expose
     private Float pricePerHour;
+
+    @SerializedName("longitude")
+    @Expose
+    private Double longitude;
+
+    @SerializedName("latitude")
+    @Expose
+    private Double latitude;
 
 
     public Float getPricePerHour() {
@@ -60,19 +76,42 @@ public class PlaceModel implements Serializable {
                 ", icon='" + icon + '\'' +
                 ", tags=" + Arrays.toString(tags) +
                 ", comfortRate=" + comfortRate +
+                ", pricePerHour=" + pricePerHour +
+                ", longitude=" + longitude +
+                ", latitude=" + latitude +
                 ", serviceRate=" + serviceRate +
                 ", locationRate=" + locationRate +
-                ", pricePerHour=" + pricePerHour +
                 '}';
+    }
+
+    public void setComfortRate(Float comfortRate) {
+        this.comfortRate = comfortRate;
+    }
+
+    public void setPricePerHour(Float pricePerHour) {
+        this.pricePerHour = pricePerHour;
+    }
+
+    public Double getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(Double longitude) {
+        this.longitude = longitude;
+    }
+
+    public Double getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(Double latitude) {
+        this.latitude = latitude;
     }
 
     public void setMidRate(float midRate) {
         this.midRate = midRate;
     }
 
-    public void setPlace_id(int place_id) {
-        this.place_id = place_id;
-    }
 
     public void setTitle(String title) {
         this.title = title;
@@ -96,10 +135,6 @@ public class PlaceModel implements Serializable {
 
     public void setLocationRate(float locationRate) {
         this.locationRate = locationRate;
-    }
-
-    public int getPlace_id() {
-        return place_id;
     }
 
     public String getTitle() {
@@ -126,19 +161,21 @@ public class PlaceModel implements Serializable {
         return locationRate;
     }
 
-    public PlaceModel(float midRate, int place_id, String title, String icon, String[] tags, float comfortRate, float serviceRate, float locationRate, float pricePerHour) {
+    public float getMidRate() {
+        return midRate;
+    }
+
+    public PlaceModel(float midRate, Long place_id, String title, String icon, String[] tags, Float comfortRate, Float pricePerHour, Double longitude, Double latitude, float serviceRate, float locationRate) {
         this.midRate = midRate;
         this.place_id = place_id;
         this.title = title;
         this.icon = icon;
         this.tags = tags;
         this.comfortRate = comfortRate;
+        this.pricePerHour = pricePerHour;
+        this.longitude = longitude;
+        this.latitude = latitude;
         this.serviceRate = serviceRate;
         this.locationRate = locationRate;
-        this.pricePerHour = pricePerHour;
-    }
-
-    public float getMidRate() {
-        return midRate;
     }
 }

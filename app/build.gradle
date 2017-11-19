@@ -5,7 +5,7 @@ android {
         config {
             keyAlias 'place'
             keyPassword 'qj6jyy++'
-            storeFile file('/home/mishatron/placereviewer.jks')
+            storeFile file('/home/yarbit/placereviewer.jks')
             storePassword 'qj6jyy++'
         }
     }

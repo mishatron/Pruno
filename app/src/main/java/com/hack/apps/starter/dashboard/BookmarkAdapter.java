@@ -1,4 +1,4 @@
-package com.hack.apps.starter.adapter;
+package com.hack.apps.starter.dashboard;
 
 import android.content.Context;
 import android.util.Log;
@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.model.PlaceModel;
 import com.hack.apps.starter.place.TagAdapter;
+import com.hack.apps.starter.place.entity.Place;
 import com.hack.apps.starter.util.Constants;
 import com.squareup.picasso.Picasso;
 import com.wefika.flowlayout.FlowLayout;
@@ -23,12 +24,12 @@ import me.zhanghai.android.materialratingbar.MaterialRatingBar;
 
 import static com.hack.apps.starter.util.RatingUtil.calculateRate;
 
-public class PlaceAdapter extends BaseAdapter {
+public class BookmarkAdapter extends BaseAdapter {
     public static String TAG = "PlaceAdapter";
     private Context context;
-    private List<PlaceModel> list;
+    private List<Place> list;
 
-    public PlaceAdapter(Context context, List<PlaceModel> model) {
+    public BookmarkAdapter(Context context, List<Place> model) {
         this.context = context;
         this.list = model;
     }
@@ -61,7 +62,7 @@ public class PlaceAdapter extends BaseAdapter {
 
         FlowLayout tags = itemView.findViewById(R.id.tags);
 
-        new TagAdapter(tags, context, Arrays.asList(list.get(i).getTags()));
+//        new TagAdapter(tags, context, Arrays.asList(list.get(i).getTags()));
 
         if (list.get(i).getIcon() != null) {
             Picasso.with(context)
