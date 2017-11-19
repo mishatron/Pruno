@@ -1,0 +1,20 @@
+{
+    "logs": [
+        {
+            "outputFile": "/home/mishatron/Documents/AndroidStudioProjects/Reviewer/vksdk_library/build/intermediates/incremental/mergeDebugAndroidTestResources/merged.dir/values-v11/values-v11.xml",
+            "map": [
+                {
+                    "source": "/home/mishatron/Documents/AndroidStudioProjects/Reviewer/vksdk_library/build/intermediates/packaged_res/debug/values-v11/values-v11.xml",
+                    "from": {
+                        "startLines": "2,9",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,453",
+                        "endLines": "8,14",
+                        "endColumns": "12,12",
+                        "endOffsets": "448,825"
+                    }
+                }
+            ]
+        }
+    ]
+}
