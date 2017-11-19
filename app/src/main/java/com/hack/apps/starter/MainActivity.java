@@ -11,7 +11,6 @@ import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
 import com.hack.apps.starter.filter.entity.Filter;
-import com.hack.apps.starter.place.PlaceDetailsFragment;
 import com.hack.apps.starter.util.FragmentUtil;
 import com.hack.apps.starter.util.Permissions;
 
@@ -49,19 +48,17 @@ public class MainActivity extends AppCompatActivity {
         finish();
     }
 
+
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = item -> {
         switch (item.getItemId()) {
             case R.id.navigation_dashboard:
                 FragmentUtil.replaceFragment(MainActivity.this, DashboardFragmment.class, null, false);
                 return true;
-            case R.id.navigation_search:
-                FragmentUtil.replaceFragment(MainActivity.this, PlaceDetailsFragment.class, null, false);
-
-                return true;
             case R.id.navigation_bookmarks:
+//                FragmentUtil.replaceFragment(MainActivity.this, PlaceDetailsFragment.class, null, false);
                 return true;
-            case R.id.navigation_profile:
+            case R.id.navigation_settings:
                 return true;
         }
         return false;
@@ -93,6 +90,5 @@ public class MainActivity extends AppCompatActivity {
 
 
     }
-
 
 }

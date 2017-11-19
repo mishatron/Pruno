@@ -19,9 +19,16 @@ public class ImageAdapter extends BaseAdapter {
     private final List<String> images;
 
 
-    public ImageAdapter(Context context, List<String> images) {
+    public ImageAdapter(Context context, List<String> im) {
         this.mContext = context;
-        this.images = images;
+        this.images = im;
+
+        for (int i = 0; i < images.size(); ++i) {
+            String image = images.get(i);
+            image = Constants.BASE_URL + image;
+            images.set(i, image);
+        }
+
     }
 
     @Override
@@ -51,7 +58,7 @@ public class ImageAdapter extends BaseAdapter {
 
         final SimpleDraweeView imageView = convertView.findViewById(R.id.image);
 
-        imageView.setImageURI(Constants.BASE_URL + imageUrl);
+        imageView.setImageURI(imageUrl);
 
         imageView.setOnClickListener(new View.OnClickListener() {
             @Override
