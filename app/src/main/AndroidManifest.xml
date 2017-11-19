@@ -57,7 +57,8 @@
         <activity
             android:name=".onboarding.OnboardingActivity"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
         <activity
             android:name=".auth.LoginActivity"
             android:screenOrientation="portrait"
@@ -79,12 +80,6 @@
             android:value="@string/facebook_app_id" />
 
         <activity android:name=".filter.FilterActivity"/>
-
-        <activity
-            android:name=".dashboard.MapFragment"
-            android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustResize" />
 
     </application>
 

@@ -15,7 +15,7 @@ import android.widget.TextView;
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.db.CommonSettingsDB;
-import com.hack.apps.starter.onboarding.fragment.ProfileEditFirstFrament;
+import com.hack.apps.starter.onboarding.fragment.OnboardingFirstFrament;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditSecondFrament;
 import com.hack.apps.starter.onboarding.fragment.ProfileEditThirdFrament;
 import com.hack.apps.starter.settings.CommonSettings;
@@ -37,7 +37,7 @@ public class OnboardingActivity extends AppCompatActivity {
     private List<ImageView> list = new ArrayList<>();
     private int pos = 0;
 
-    private ProfileEditFirstFrament firstFrgment = new ProfileEditFirstFrament();
+    private OnboardingFirstFrament firstFrgment = new OnboardingFirstFrament();
     private ProfileEditSecondFrament secondFrgment = new ProfileEditSecondFrament();
     private ProfileEditThirdFrament thirdFrgment = new ProfileEditThirdFrament();
 
@@ -87,11 +87,9 @@ public class OnboardingActivity extends AppCompatActivity {
             }
             case 1: {
                 mViewPager.setCurrentItem(getItem(+1), true);
-//                secondFrgment.updateModel();
                 break;
             }
             case 2: {
-//                thirdFrgment.updateModel();
                 openMain();
                 break;
             }
