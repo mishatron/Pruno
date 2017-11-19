@@ -64,12 +64,9 @@ public class LoginActivity extends AppCompatActivity implements LoginCallback {
     @OnClick(R.id.gp)
     public void gpLogin(View view) {
 
-        googlePlusClient.getProfile(new GooglePlusClient.GooglePlusResultCallback() {
-            @Override
-            public void onProfileLoaded(GooglePlusProfile googlePlusProfile) {
-                loginUser(Long.parseLong(googlePlusProfile.getId()), googlePlusProfile.getName(), googlePlusProfile.getToken());
-            }
-        });
+        googlePlusClient.getProfile(
+                googlePlusProfile -> loginUser(Long.parseLong(googlePlusProfile.getId()),
+                        googlePlusProfile.getName(), googlePlusProfile.getToken()));
 
     }
 
