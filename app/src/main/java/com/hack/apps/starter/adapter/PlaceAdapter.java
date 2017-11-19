@@ -52,6 +52,8 @@ public class PlaceAdapter extends BaseAdapter {
 
         ((TextView) itemView.findViewById(R.id.project_name)).setText(list.get(i).getTitle());
 
+        ((TextView) itemView.findViewById(R.id.money_text)).setText(String.valueOf(list.get(i).getPricePerHour()));
+
         CircleImageView img = (CircleImageView) itemView.findViewById(R.id.project_image);
 
         if (list.get(i).getIcon() != null) {
@@ -64,6 +66,7 @@ public class PlaceAdapter extends BaseAdapter {
         float rate = calculateRate(list.get(i).getLocationRate(), list.get(i).getServiceRate(), list.get(i).getComfortRate());
         Log.e(TAG, "rate=" + rate);
         starBar.setRating(rate);
+
 
         //Todo add tags
 

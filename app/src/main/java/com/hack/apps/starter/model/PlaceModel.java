@@ -2,7 +2,6 @@ package com.hack.apps.starter.model;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
-import com.hack.apps.starter.util.RatingUtil;
 
 import java.io.Serializable;
 import java.util.Arrays;
@@ -33,7 +32,17 @@ public class PlaceModel implements Serializable {
     @Expose
     private float comfortRate;
 
+    @SerializedName("pricePerHour")
+    @Expose
+    private float pricePerHour;
+
+
+    public float getPricePerHour() {
+        return pricePerHour;
+    }
+
     @SerializedName("serviceRate")
+
     @Expose
     private float serviceRate;
 
@@ -41,19 +50,22 @@ public class PlaceModel implements Serializable {
     @Expose
     private float locationRate;
 
-
     @Override
     public String toString() {
         return "PlaceModel{" +
-                "place_id=" + place_id +
+                "midRate=" + midRate +
+                ", place_id=" + place_id +
                 ", title='" + title + '\'' +
                 ", icon='" + icon + '\'' +
                 ", tags=" + Arrays.toString(tags) +
                 ", comfortRate=" + comfortRate +
                 ", serviceRate=" + serviceRate +
                 ", locationRate=" + locationRate +
+                ", pricePerHour=" + pricePerHour +
                 '}';
     }
+
+
 
     public int getPlace_id() {
         return place_id;
@@ -83,7 +95,8 @@ public class PlaceModel implements Serializable {
         return locationRate;
     }
 
-    public PlaceModel(int place_id, String title, String icon, String[] tags, float comfortRate, float serviceRate, float locationRate) {
+    public PlaceModel(float midRate, int place_id, String title, String icon, String[] tags, float comfortRate, float serviceRate, float locationRate, float pricePerHour) {
+        this.midRate = midRate;
         this.place_id = place_id;
         this.title = title;
         this.icon = icon;
@@ -91,9 +104,8 @@ public class PlaceModel implements Serializable {
         this.comfortRate = comfortRate;
         this.serviceRate = serviceRate;
         this.locationRate = locationRate;
-        midRate = RatingUtil.calculateRate(locationRate, serviceRate, comfortRate);
+        this.pricePerHour = pricePerHour;
     }
-
 
     public float getMidRate() {
         return midRate;
