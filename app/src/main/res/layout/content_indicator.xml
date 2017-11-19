@@ -50,7 +50,7 @@
             android:gravity="center"
             android:text="@string/onboarding_next"
             android:textAllCaps="true"
-            android:textColor="@color/colorBlue" />
+            android:textColor="#fff" />
 
     </LinearLayout>
 
