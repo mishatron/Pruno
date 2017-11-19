@@ -41,18 +41,64 @@ public class PlaceModel implements Serializable {
     @Expose
     private float locationRate;
 
+    @SerializedName("pricePerHour")
+    @Expose
+    private float pricePerHour;
+
 
     @Override
     public String toString() {
         return "PlaceModel{" +
-                "place_id=" + place_id +
+                "midRate=" + midRate +
+                ", place_id=" + place_id +
                 ", title='" + title + '\'' +
                 ", icon='" + icon + '\'' +
                 ", tags=" + Arrays.toString(tags) +
                 ", comfortRate=" + comfortRate +
                 ", serviceRate=" + serviceRate +
                 ", locationRate=" + locationRate +
+                ", pricePerHour=" + pricePerHour +
                 '}';
+    }
+
+    public void setMidRate(float midRate) {
+        this.midRate = midRate;
+    }
+
+    public void setPlace_id(int place_id) {
+        this.place_id = place_id;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setIcon(String icon) {
+        this.icon = icon;
+    }
+
+    public void setTags(String[] tags) {
+        this.tags = tags;
+    }
+
+    public void setComfortRate(float comfortRate) {
+        this.comfortRate = comfortRate;
+    }
+
+    public void setServiceRate(float serviceRate) {
+        this.serviceRate = serviceRate;
+    }
+
+    public void setLocationRate(float locationRate) {
+        this.locationRate = locationRate;
+    }
+
+    public float getPricePerHour() {
+        return pricePerHour;
+    }
+
+    public void setPricePerHour(float pricePerHour) {
+        this.pricePerHour = pricePerHour;
     }
 
     public int getPlace_id() {

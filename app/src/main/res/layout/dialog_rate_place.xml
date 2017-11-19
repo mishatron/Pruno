@@ -77,7 +77,7 @@
             android:textStyle="bold" />
 
         <me.zhanghai.android.materialratingbar.MaterialRatingBar
-            android:id="@+id/Rate"
+            android:id="@+id/locationRate"
             style="@style/Widget.MaterialRatingBar.RatingBar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

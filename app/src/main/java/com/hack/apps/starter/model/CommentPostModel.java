@@ -4,13 +4,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class CommentPostModel {
-    @SerializedName("place_id")
-    @Expose
-    private Long entityId;
 
-    @SerializedName("user_name")
+    @SerializedName("username")
     @Expose
-    private Long user_name;
+    private String username;
 
     @SerializedName("comfortRate")
     @Expose
@@ -24,10 +21,14 @@ public class CommentPostModel {
     @Expose
     public Float locationRate;
 
+    @SerializedName("text")
+    @Expose
+    public String message;
 
-    public CommentPostModel(Long entityId, Long user_name, Float comfortRate, Float serviceRate, Float locationRate) {
-        this.entityId = entityId;
-        this.user_name = user_name;
+
+    public CommentPostModel(String username, String message, Float comfortRate, Float serviceRate, Float locationRate) {
+        this.username = username;
+        this.message = message;
         this.comfortRate = comfortRate;
         this.serviceRate = serviceRate;
         this.locationRate = locationRate;

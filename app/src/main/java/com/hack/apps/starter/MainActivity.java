@@ -14,6 +14,7 @@ import com.hack.apps.starter.auth.LoginActivity;
 import com.hack.apps.starter.dashboard.DashboardFragmment;
 import com.hack.apps.starter.db.CommonSettingsDB;
 import com.hack.apps.starter.db.UserDB;
+import com.hack.apps.starter.filter.entity.Filter;
 import com.hack.apps.starter.place.PlaceDetailsFragment;
 import com.hack.apps.starter.settings.CommonSettings;
 import com.hack.apps.starter.util.FragmentUtil;
@@ -26,6 +27,8 @@ import static com.hack.apps.starter.db.DB.initDB;
 
 public class MainActivity extends AppCompatActivity {
     public static String TAG = "MainActivity";
+
+    public static Filter filter = null;
 
     @BindView(R.id.navigation)
     BottomNavigationView navigation;
@@ -42,7 +45,6 @@ public class MainActivity extends AppCompatActivity {
         UserDB.findById(CommonSettingsDB.get().getUserId());
 
         Log.e("user id", CommonSettingsDB.get().getUserId() + "");
-
 
     }
 
@@ -128,5 +130,18 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+
+//        if (requestCode == 1) {
+
+        Log.e("REQUEST CODE", "Apply filter "+resultCode);
+
+//        }
+
+
+    }
+
 
 }

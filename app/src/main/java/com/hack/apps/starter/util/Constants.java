@@ -11,6 +11,10 @@ public class Constants {
     public static final String KEY_LNG = "longitude";
     public static final String KEY_TITLE = "title";
 
+
+    public static final String MIN_PRICE = "max_price";
+    public static final String MAX_PRICE = "min_price";
+
     public static final int PERMISSION_REQUEST = 101;
 
 }

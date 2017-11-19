@@ -89,6 +89,8 @@ public class PlaceDetailsFragment extends Fragment {
 
         new TagAdapter(flowLayout, getActivity(), Arrays.asList(place.getTags()));
 
+        PlaceInfoFragment.toolbar.setTitle(place.getTitle());
+
         title.setText(place.getTitle());
         description.setText(place.getDescription());
 

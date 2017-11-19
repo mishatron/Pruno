@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import com.hack.apps.starter.R;
 import com.hack.apps.starter.db.UserDB;
+import com.hack.apps.starter.model.CommentPostModel;
 import com.hack.apps.starter.place.entity.Comment;
 import com.hack.apps.starter.retrofit.RetrofitUtil;
 import com.hack.apps.starter.util.Constants;
@@ -24,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import me.zhanghai.android.materialratingbar.MaterialRatingBar;
+import okhttp3.ResponseBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -36,6 +38,7 @@ public class FragmentComments extends Fragment {
     private final static String TAG = FragmentComments.class.getCanonicalName();
 
     private Call commentsCall;
+
 
     CommentAdapter adapter;
 
@@ -106,6 +109,7 @@ public class FragmentComments extends Fragment {
             comment.setLocationRate(locationRate.getRating());
 
 
+            addComment(getArguments().getInt(Constants.KEY_ID), comment);
 
         });
 
@@ -118,10 +122,50 @@ public class FragmentComments extends Fragment {
 
     private void updateView(List<Comment> comments) {
 
+        mList.clear();
         mList.addAll(comments);
         adapter.notifyDataSetChanged();
 
     }
+
+    private void addComment(Integer placeId, Comment comment) {
+        commentsCall = RetrofitUtil.getCommentQuery().postComment(placeId, new CommentPostModel(
+                comment.getUsername(),
+                comment.getMessage(),
+                comment.getComfortRate(),
+                comment.getServiceRate(),
+                comment.getLocationRate()));
+
+        commentsCall.enqueue(new Callback<ResponseBody>() {
+            @Override
+            public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
+                if (response.isSuccessful()) {
+                    if (response.body() != null) {
+                        Log.i(TAG, "makeLikeRequest successful");
+                        ResponseBody res = response.body();
+
+                        getComments(placeId);
+
+
+                    }
+                } else {
+                    Log.e(TAG, "GetErrCode" + String.valueOf(response.code()));
+                    try {
+                        Log.e(TAG, "GetErrBody" + response.errorBody().string());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+            @Override
+            public void onFailure(Call call, Throwable t) {
+                Log.e(TAG, "Unable to submit get." + t.toString());
+                Log.e(TAG, "Unable to submit call." + call.request().body());
+            }
+        });
+    }
+
 
     private void getComments(Integer placeId) {
         commentsCall = RetrofitUtil.getCommentQuery().getComments(placeId);

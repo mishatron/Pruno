@@ -23,19 +23,21 @@ public class PlaceInfoFragment extends Fragment {
 
     Bundle bundle;
 
+    public static Toolbar toolbar;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_place_info, container, false);
 
         this.bundle = getArguments();
-
+        toolbar = view.findViewById(R.id.toolbar);
 
         ViewPager mViewPager;
 
         setHasOptionsMenu(true);
-        Toolbar toolbar = view.findViewById(R.id.toolbar);
-        toolbar.setTitle("!@##RT$#@");
+        toolbar = view.findViewById(R.id.toolbar);
+        toolbar.setTitle("Заклад");
 //        toolbar.inflateMenu(R.menu.schedule_week_menu);
 
 
